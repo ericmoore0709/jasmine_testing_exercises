@@ -24,3 +24,29 @@ function appendTd(tr, value) {
 
   tr.append(newTd);
 }
+
+function appendDeleteBtnToServerTr(tr) {
+  const delBtn = document.createElement('td');
+  delBtn.textContent = 'X';
+  delBtn.addEventListener('click', (e) => {
+    if (confirm("Are you sure you want to delete this server?")) {
+      const table = document.getElementById('serverTable');
+      const rowToDelete = e.target.parent;
+      table.removeChild(rowToDelete);
+    }
+  });
+  tr.append(delBtn);
+}
+
+function appendDeleteBtnToPaymentTr(tr) {
+  const delBtn = document.createElement('td');
+  delBtn.textContent = 'X';
+  delBtn.addEventListener('click', (e) => {
+    if (confirm("Are you sure you want to delete this server?")) {
+      const table = document.getElementById('paymentTable');
+      const rowToDelete = e.target.parent;
+      table.removeChild(rowToDelete);
+    }
+  });
+  tr.append(delBtn);
+}

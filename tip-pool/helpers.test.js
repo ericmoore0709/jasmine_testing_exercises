@@ -27,6 +27,24 @@ describe('helpers test with setup and teardown', () => {
         expect(trToCheck.children[0].textContent).toEqual('$12345');
     });
 
+    it('should append the delete button to the server tr', () => {
+        const tr = document.createElement('tr');
+        appendDeleteBtnToServerTr(tr);
+        expect(tr.children).toBeDefined();
+        expect(tr.children.length).toEqual(1);
+        expect(tr.children[0]).toBeDefined();
+        expect(tr.children[0].textContent).toEqual('X');
+    });
+
+    it('should append the delete button to the payment tr', () => {
+        const tr = document.createElement('tr');
+        appendDeleteBtnToPaymentTr(tr);
+        expect(tr.children).toBeDefined();
+        expect(tr.children.length).toEqual(1);
+        expect(tr.children[0]).toBeDefined();
+        expect(tr.children[0].textContent).toEqual('X');
+    });
+
     afterEach(() => {
         allPayments = {};
         paymentId = 0;
